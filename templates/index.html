@@ -1,0 +1,79 @@
+{% extends 'parent.html' %}
+
+{% block title %}
+<title>HOME</title>
+    
+{% endblock  title %}
+
+{% block main %}
+<main>
+ <!-- Main Container -->
+ <div class="container mt-5">
+    <h2 class="mb-4">Library Management System</h2>
+    
+    <!-- Add Book Form -->
+    <div class="card mb-4">
+        <div class="card-header">
+            Add New Book
+        </div>
+        <div class="card-body">
+            <form  action="/" method="POST">
+                <div class="form-group">
+                    <label for="bookTitle">Book Title</label>
+                    <input type="text" class="form-control" id="bookTitle"  name="bookname"  placeholder="Enter book title">
+                </div>
+                <div class="form-group">
+                    <label for="author">Author</label>
+                    <input type="text" class="form-control" id="Author" name="bookauthor" placeholder="Enter author's name">
+                </div>
+                <div class="form-group">
+                    <label for="isbn">ISBN</label>
+                    <input type="text" class="form-control" id="Isbn"name="bookisbn" placeholder="Enter ISBN">
+                </div>
+                <button type="submit" class="btn btn-primary">Add Book</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Books Table -->
+    <div class="card">
+        <div class="card-header">
+            Books List
+        </div>
+        <div class="card-body">
+            <table class="table table-bordered">
+                <thead class="thead-light">
+                    <tr>
+                        <th scope="col">SNO</th>
+                        <th scope="col">Title</th>
+                        <th scope="col">Author</th>
+                        <th scope="col">ISBN</th>
+                        <th scope="col">Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                   {% for Members in allDetails %}
+                    <tr>
+                        <th scope="row">{{Members.sno}}</th>
+                        <td>{{Members.bookName}}</td>
+                        <td>{{Members.Author}}</td>
+                        <td>{{Members.ISBN}}</td>
+                        <td>
+                           <a href="/update?sno={{Members.sno}}" ><button class="btn btn-primary">Update</button></a>
+                           <a href="/delete?sno={{Members.sno}}" ><button class="btn btn-secondary">Delete</button></a>
+                        </td>
+                    </tr>
+                
+
+                    {% endfor %}
+
+                </tbody>
+            </table> 
+        </div>  
+    </div>    
+ </div>
+</main>
+    
+{% endblock main %}
+
+    

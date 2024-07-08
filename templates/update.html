@@ -1,0 +1,41 @@
+{% extends 'parent.html' %}
+
+
+{% block title %}
+
+<title>UPDATE</title>
+    
+{% endblock title %}
+
+{% block main %}
+<main>
+    <!-- Main Container -->
+ <div class="container mt-5">
+    <h2 class="mb-4">Library Management System</h2>
+    <!-- Add Book Form -->
+    <div class="card mb-4">
+        <div class="card-header">
+            Update 
+        </div>
+        <div class="card-body">
+            <form  action="/update?sno={{reqDetails.sno}}" method="POST">
+                <div class="form-group">
+                    <label for="bookTitle">Book Title</label>
+                    <input type="text" class="form-control" id="bookTitle"  name="bookname"value="{{reqDetails.bookName}}" placeholder="Enter book title">
+                </div>
+                <div class="form-group">
+                    <label for="author">Author</label>
+                    <input type="text" class="form-control" id="Author" name="bookauthor"value="{{reqDetails.Author}}" placeholder="Enter author's name">
+                </div>
+                <div class="form-group">
+                    <label for="isbn">ISBN</label>
+                    <input type="text" class="form-control" id="Isbn"name="bookisbn"value="{{reqDetails.ISBN}}" placeholder="Enter ISBN">
+                </div>
+                <button type="submit" class="btn btn-primary">Add Book</button>
+            </form>
+        </div>
+    </div>
+    
+</main>
+    
+{% endblock main %}
